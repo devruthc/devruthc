@@ -58,4 +58,3 @@ Toda madrugada, às 03:00, uma GitHub Action:
 </details>
 
 <p align="center"><sub>feito com carinho e Python</sub></p>
-

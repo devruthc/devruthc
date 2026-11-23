@@ -1,0 +1,55 @@
+name: painel
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # 03:00 em Brasília
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - painel.json
+      - scripts/gerar_painel.py
+      - .github/workflows/painel.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: painel
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Painel e indicadores
+        run: python scripts/gerar_painel.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cobrinha
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/cobrinha-light.svg?color_snake=#0e7490&color_dots=#f1ecf6,#e4d4fb,#c4a6f5,#a46be8,#db2777
+            assets/cobrinha-dark.svg?palette=github-dark&color_snake=#67e8f9&color_dots=#1a1722,#3b2a5c,#6d4bb0,#a78bfa,#f472b6
+
+      - name: Salvar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          if git diff --cached --quiet; then
+            echo "nada mudou"
+          else
+            git commit -m "painel: atualização automática"
+            git push
+          fi

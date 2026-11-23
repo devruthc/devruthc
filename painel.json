@@ -1,0 +1,21 @@
+{
+  "usuario_github": "devruthc",
+  "nome": "Ruth",
+  "selo": "painel · perfil",
+  "cargo": "Analista de Dados · Desenvolvedora Python",
+  "local": "VIP Promotora · Florianópolis",
+  "rodape": "python · django · celery · postgresql",
+  "mostrar_contribuicoes": true,
+  "sistemas": [
+    { "nome": "Dashboard de Vendas", "status": "no ar" },
+    { "nome": "Huggy Sync", "status": "sincronizando" },
+    { "nome": "Formalização", "status": "no ar" },
+    { "nome": "Central de Monitoramento", "status": "no ar" }
+  ],
+  "kpis": [
+    { "rotulo": "projetos", "valor": "6", "detalhe": "2 abertos · 4 da empresa" },
+    { "rotulo": "integrações", "valor": "3", "detalhe": "Huggy · Storm · Sheets" },
+    { "rotulo": "rotinas automáticas", "valor": null, "detalhe": "Celery Beat" },
+    { "rotulo": "horas poupadas / mês", "valor": null, "detalhe": "estimativa" }
+  ]
+}
