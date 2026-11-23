@@ -7,15 +7,17 @@
   "rodape": "python · django · celery · postgresql",
   "mostrar_contribuicoes": true,
   "sistemas": [
-    { "nome": "Dashboard de Vendas", "status": "no ar" },
-    { "nome": "Huggy Sync", "status": "sincronizando" },
-    { "nome": "Formalização", "status": "no ar" },
-    { "nome": "Central de Monitoramento", "status": "no ar" }
+    { "nome": "Dashboard de Vendas", "status": "a cada 1 min" },
+    { "nome": "Formalização", "status": "a cada 2 min" },
+    { "nome": "Auditoria", "status": "a cada 5 min" },
+    { "nome": "Analytics", "status": "a cada 20 min" },
+    { "nome": "Central de Monitoramento", "status": "a cada 60 s" },
+    { "nome": "Huggy Sync", "status": "tempo real" }
   ],
   "kpis": [
-    { "rotulo": "projetos", "valor": "6", "detalhe": "2 abertos · 4 da empresa" },
-    { "rotulo": "integrações", "valor": "3", "detalhe": "Huggy · Storm · Sheets" },
-    { "rotulo": "rotinas automáticas", "valor": null, "detalhe": "Celery Beat" },
+    { "rotulo": "projetos", "valor": "10", "detalhe": "dashboards, sincronizações e robôs" },
+    { "rotulo": "integrações", "valor": "8", "detalhe": "Huggy · Storm · Sheets · PABX · +4" },
+    { "rotulo": "rotinas automáticas", "valor": "22", "detalhe": "agendadas em 5 sistemas" },
     { "rotulo": "horas poupadas / mês", "valor": null, "detalhe": "estimativa" }
   ]
 }

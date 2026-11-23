@@ -9,7 +9,7 @@ Com GITHUB_TOKEN no ambiente, busca as contribuições dos últimos 12 meses e
 desenha as barras no painel. Sem token, o painel sai sem as barras.
 
 No painel.json:
-- sistema com status "no ar" ganha ponto ciano; qualquer outro status, lilás;
+- sistema com status "tempo real" (webhook) ganha ponto lilás; os agendados, ciano;
 - KPI com "valor": null não aparece. Preencha o valor e o card surge.
 """
 
@@ -214,7 +214,7 @@ def svg_painel(cfg, t, contrib, agora):
     ]
     for i, sistema in enumerate(sistemas):
         y = 76 + i * 26
-        cor = t["ok"] if sistema["status"] == "no ar" else t["lilas"]
+        cor = t["lilas"] if sistema["status"] == "tempo real" else t["ok"]
         ponto = f'cx="{X_DIR + 5}" cy="{y - 4.5}" r="4" fill="{cor}"'
         partes += [
             f'<circle class="pulso" style="animation-delay:{i * 0.6:.1f}s" {ponto}/>',
